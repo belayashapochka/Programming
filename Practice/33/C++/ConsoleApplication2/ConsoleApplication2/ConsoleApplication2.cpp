@@ -43,7 +43,6 @@ void print(int *ptr_ptrarr, const int size)
 		}
 	}
 	std::cout << "]";
-	delete []ptr_ptrarr;
 }
 
 
@@ -61,7 +60,7 @@ int main(int argc, const char * argv[])
 	create(size,start, step);
 	sort(ptr_ptrarr, size);
 	print(ptr_ptrarr, size);
-	
+	delete[]ptr_ptrarr;
 	std::cin.get();
 	return 0;
 }
