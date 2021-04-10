@@ -33,7 +33,7 @@ void print(int* ptr_ptrarr, const int size)
     {
         if (i < size - 1)
         {
-            std::cout << *(ptr_ptrarr + i) << " ";
+            std::cout << *(ptr_ptrarr + i) << " ,";
         }
         else
         {
