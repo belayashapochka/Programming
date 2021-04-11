@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-#include "Point.cpp"
+#include "Point.h"
 #include <cmath>
 using namespace std;
 
@@ -30,7 +30,15 @@ public:
     }
     bool operator==(Vector p2)
     {
-        return ((this->start == p2.start) && (this->end == p2.end));
+        if ((this->end.get_x() - this->start.get_x() == p2.end.get_x() - p2.start.get_x()) &&
+            (this->end.get_y() - this->start.get_y() == p2.end.get_y() - p2.start.get_y()))
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
     };
     Vector operator-()
     {
@@ -61,8 +69,8 @@ public:
     double operator*(Vector p2)
     {
         double xx, yy;
-        xx = (p2.start.get_x() - this->start.get_x()) * (p2.end.get_x() - this->end.get_x());
-        yy = (p2.start.get_y() - this->start.get_y()) * (p2.end.get_y() - this->end.get_y());
+        xx = (this->end.get_x() - this->start.get_x()) * (p2.end.get_x() - p2.start.get_x());
+        yy = (this->end.get_y() - this->start.get_y()) * (p2.end.get_y() - p2.start.get_y());
         return xx + yy ;
     }
 
